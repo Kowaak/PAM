@@ -22,13 +22,13 @@ namespace AndroidApp2
             {
                 if (string.IsNullOrEmpty(editText1.Text))
                 {
-                    textView1.Text = "WprowadŸ liczbê";
+                    textView1.Text = "Wprowadz liczbe";
                     return;
                 }
 
                 if (!int.TryParse(editText1.Text, out int inputValue))
                 {
-                    textView1.Text = "WprowadŸ liczbê ca³kowit¹";
+                    textView1.Text = "Wprowadz liczbe calkowita";
                     return;
                 }
 
