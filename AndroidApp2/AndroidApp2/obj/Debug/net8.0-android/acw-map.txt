@@ -1,0 +1,3 @@
+AndroidApp2.MainActivity, AndroidApp2;crc641149b9fe658fbe8e.MainActivity
+AndroidApp2.MainActivity;crc641149b9fe658fbe8e.MainActivity
+androidapp2.MainActivity;crc641149b9fe658fbe8e.MainActivity
