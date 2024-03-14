@@ -12,7 +12,7 @@ namespace AndroidApp2
             Button button1 = FindViewById<Button>(Resource.Id.button1);
             TextView textView1 = FindViewById<TextView>(Resource.Id.textView1);
 
-            float Factorial(int n)
+            long Factorial(int n)
             {
                 if (n == 0) return 1;
                 return n * Factorial(n - 1);
