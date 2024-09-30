@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,11 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,10 +52,11 @@ public class MainActivity extends AppCompatActivity {
         Emiejsc = findViewById(R.id.miejsc);
         Ephone = findViewById(R.id.phone);
         //usersTextView = findViewById(R.id.uzytko);
-       // StringBuilder usersString = new StringBuilder();
+        // StringBuilder usersString = new StringBuilder();
 
         db = openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
         db.execSQL("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,surname TEXT, phone text, miejscowosc text, ulica TEXT, nr text)");
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "user_data.txt");
 
         Button rejeButton = findViewById(R.id.rej);
         Button wypisz = findViewById(R.id.wyp);
@@ -124,10 +131,20 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "WYPEŁNIJ WSZYSTKIE POLA", Toast.LENGTH_SHORT).show();
                 return;
             }
+
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, StandardCharsets.UTF_8, true))) {
+                writer.write("ID: " + " | Imię: " + name + " | Nazwisko: " + surname + " | Miejscowość: " + miejsc + " | Ulica: " + ulica + " | nr: " + nr + " | Telefon: " + phone + System.lineSeparator());
+            } catch (IOException e) {
+                Toast.makeText(MainActivity.this, "BŁĄD ZAPISU", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             Cursor cursor = db.rawQuery("SELECT * FROM users ", new String[]{});
             db.execSQL("INSERT INTO users (name,surname,miejscowosc,ulica,nr,phone) VALUES (?,?,?,?,?,?)", new String[]{name,surname,miejsc,ulica,nr,phone});
             Toast.makeText(MainActivity.this, "UTWORZONO UŻYTKOWNIKA", Toast.LENGTH_SHORT).show();
             cursor.close();
+
+
         });
 
     }
