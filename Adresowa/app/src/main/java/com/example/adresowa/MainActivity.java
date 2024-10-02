@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -35,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText Emiejsc;
     private EditText Enr;
     private EditText Ephone;
-    //private TextView usersTextView;
     private static final String DB_NAME = "user2.db";
     private SQLiteDatabase db;
 
@@ -51,38 +49,17 @@ public class MainActivity extends AppCompatActivity {
         Eulica = findViewById(R.id.ulica);
         Emiejsc = findViewById(R.id.miejsc);
         Ephone = findViewById(R.id.phone);
-        //usersTextView = findViewById(R.id.uzytko);
-        // StringBuilder usersString = new StringBuilder();
-
+        
+        //Utworzenie bazy danych
         db = openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
         db.execSQL("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,surname TEXT, phone text, miejscowosc text, ulica TEXT, nr text)");
-        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "user_data.txt");
-
+        
+        File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "user_data.txt"); //Utworzenie pliku w folderze "Download"
+        
         Button rejeButton = findViewById(R.id.rej);
         Button wypisz = findViewById(R.id.wyp);
-        /*
-        wypisz.setOnClickListener(view -> {
-            Cursor cursor = db.rawQuery("SELECT * FROM users", null);
-            if (cursor.moveToFirst()) {
-                usersString.setLength(0);
-                for (int i = 0; i < cursor.getCount(); i++) {
-                    String id = cursor.getString(0);
-                    String name = cursor.getString(1);
-                    String surname = cursor.getString(2);
-                    String phone = cursor.getString(3);
-                    String miejsc = cursor.getString(4);
-                    String ulica = cursor.getString(5);
-                    String nr = cursor.getString(6);
-                    usersString.append("ID: ").append(id).append("| Imię: ").append(name).append("| Nazwisko: ").append(surname).
-                            append("| Miejscowość: ").append(miejsc).append("| Ulica: ").append(ulica).append("| nr: ").append(nr)
-                            .append("| telefon: ").append(phone).append("\n");
-                    cursor.moveToNext();
-                }
-            }
-            cursor.close();
-            usersTextView.setText(usersString.toString());
-        });
-        */
+
+        //Wypisanie danych do list view w scrollview
         wypisz.setOnClickListener(view -> {
             Cursor cursor = db.rawQuery("SELECT * FROM users", null);
             ListView listView = findViewById(R.id.uzytko);
@@ -93,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             if (cursor.moveToFirst()) {
                 for (int i = 0; i < cursor.getCount(); i++) {
                     String[] row = new String[7];
-                    row[0] = cursor.getString(0);
+                    row[0] = cursor.getString(0); //Każda kolumna w bazie wrzucana do tabeli
                     row[1] = cursor.getString(1);
                     row[2] = cursor.getString(2);
                     row[3] = cursor.getString(3);
@@ -119,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
             });
         });
 
+        //Rejestracja
         rejeButton.setOnClickListener(view -> {
             String name = Eimie.getText().toString();
             String surname = Enazwisko.getText().toString();
@@ -131,21 +109,20 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "WYPEŁNIJ WSZYSTKIE POLA", Toast.LENGTH_SHORT).show();
                 return;
             }
-
+            
+            //Wpis do pliku - początek
             try (BufferedWriter writer = new BufferedWriter(new FileWriter(file, StandardCharsets.UTF_8, true))) {
                 writer.write("ID: " + " | Imię: " + name + " | Nazwisko: " + surname + " | Miejscowość: " + miejsc + " | Ulica: " + ulica + " | nr: " + nr + " | Telefon: " + phone + System.lineSeparator());
             } catch (IOException e) {
                 Toast.makeText(MainActivity.this, "BŁĄD ZAPISU", Toast.LENGTH_SHORT).show();
                 return;
             }
-
+            //koniec
+            
             Cursor cursor = db.rawQuery("SELECT * FROM users ", new String[]{});
             db.execSQL("INSERT INTO users (name,surname,miejscowosc,ulica,nr,phone) VALUES (?,?,?,?,?,?)", new String[]{name,surname,miejsc,ulica,nr,phone});
             Toast.makeText(MainActivity.this, "UTWORZONO UŻYTKOWNIKA", Toast.LENGTH_SHORT).show();
             cursor.close();
-
-
         });
-
     }
 }
