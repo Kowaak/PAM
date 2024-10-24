@@ -62,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         //Utworzenie bazy danych
         db = openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
         db.execSQL("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,surname TEXT, phone text, miejscowosc text, ulica TEXT, nr text)");
-
         File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "user_data.txt"); //Utworzenie pliku w folderze "Download"
         
         Button rejeButton = findViewById(R.id.rej);
@@ -102,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
                     textView.setTextColor(Color.WHITE);
                     return view;
                 }
+
             });
         });
 
