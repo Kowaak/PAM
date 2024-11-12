@@ -25,13 +25,13 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_register);
-
+        //Przypisanie pól do zmiennych
         EditText Elogin = findViewById(R.id.eLogin);
         EditText Ehaslo = findViewById(R.id.eHaslo);
         //Utworzenie lub otwarcie bazy danych z nazwą określona w zmiennej 'DB_NAME' dziedziczoną z klasy 'Global'
         SQLiteDatabase db = openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
         db.execSQL("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,Login TEXT UNIQUE, Haslo TEXT )");
-
+        //Wbudowane
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.register), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -63,6 +63,9 @@ public class RegisterActivity extends AppCompatActivity {
                         db.execSQL("INSERT INTO users (Login, Haslo) VALUES (?, ?)", new String[]{Login, Haslo});
                         //Udało się utworzyć użytkownika
                         Toast.makeText(RegisterActivity.this, "UTWORZONO UŻYTKOWNIKA", Toast.LENGTH_SHORT).show();
+                        //Przenosi od razu do MainActivity i traktuje jako zalogowanego
+                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                        startActivity(intent);
                     }
                     cursor.close();
                 } catch (Exception e) {

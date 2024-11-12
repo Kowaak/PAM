@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
-
+        //Przypisanie pól do zmiennych
         EditText Elogin = findViewById(R.id.eLogin);
         EditText Ehaslo = findViewById(R.id.eHaslo);
         //Utworzenie lub otwarcie bazy danych z nazwą określona w zmiennej 'DB_NAME' dziedziczoną z klasy 'Global'
