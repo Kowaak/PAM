@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Menadżer Haseł</string>
+    <string name="login">Login</string>
+    <string name="password">Hasło</string>
+    <string name="log_in">Zaloguj się</string>
+    <string name="dont_have_an_account">Nie masz konta?</string>
+    <string name="register">Zarejestruj się</string>
+    <string name="already_have_account">Masz już konto?</string>
+    <string name="search">Wyszukaj</string>
+    <string name="new_login">Nowy Login</string>
+    <string name="error_empty">Błąd: Login i Hasło nie mogą być puste</string>
+    <string name="error_login_taken">Błąd: Login już istnieje</string>
 </resources>
