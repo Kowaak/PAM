@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         //Utworzenie lub otwarcie bazy danych z nazwą określona w zmiennej 'DB_NAME' dziedziczoną z klasy 'Global'
         SQLiteDatabase db = openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);  //Kij wie jak zrobić szyfrowanie póki co
         db.execSQL("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT,Login TEXT UNIQUE, Haslo TEXT )");
-        //wbudowane
+        //Wbudowana funkcja
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.login), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
