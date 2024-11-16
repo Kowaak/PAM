@@ -2,6 +2,7 @@ package com.example.hasla;
 
 import static com.example.hasla.Global.DB_NAME;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,6 +21,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -58,10 +60,20 @@ public class RegisterActivity extends AppCompatActivity {
                         //Login już istnieje, pokaż błąd
                         Error.setText(R.string.error_login_taken);
                     } else {
-                        //Insert użytkownika do bazy i pokazanie komunikatu jeśli się udało
-                        db.execSQL("INSERT INTO users (Login, Haslo) VALUES (?, ?)", new String[]{Login, Haslo});
+                        String hashedPassword = Global.hashPassword(Haslo); //Szyfrowanie hasła
+                        // Insert użytkownika do bazy i pobierz jego id
+                        ContentValues values = new ContentValues();
+                        values.put("Login", Login);
+                        values.put("Haslo", hashedPassword);
+                        long newUserId = db.insert("users", null, values);
+                        // Udało się utworzyć użytkownika
                         Toast.makeText(RegisterActivity.this, "UTWORZONO UŻYTKOWNIKA", Toast.LENGTH_SHORT).show();
-                        //Przenosi od razu do MainActivity i traktuje jako zalogowanego
+                        //przenieś do MainActivity i ustaw ID użytkownika w zmiennej w klasie Global
+                        //Dostęp do zmiennej ID
+                        Global app = (Global) getApplication();
+                        //Ustawienie zmiennej ID
+                        app.setUserID(newUserId);
+                        //Przejście do 'MainActivity'
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                         startActivity(intent);
                     }
