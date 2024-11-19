@@ -2,7 +2,6 @@ package com.example.hasla;
 
 import static com.example.hasla.Global.DB_NAME;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -54,21 +53,43 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
             });
-            //Funkcja odpowiedzialna za całe logowanie
+            //Funkcja odpowiedzialna za logowanie
             Logowanie.setOnClickListener(v1 -> {
                 Global app = (Global) getApplication();
-                String Login = Elogin.getText().toString();
-                String Haslo = Ehaslo.getText().toString();
+                String Login = Elogin.getText().toString().trim();
+                String Haslo = Ehaslo.getText().toString().trim();
+
+                if (Login.isEmpty() || Haslo.isEmpty()) {
+                    Toast.makeText(this, "Proszę wprowadzić login i hasło", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 if (daneLogowania(Login, Haslo)) {
-                    // Dane są poprawne
-                    Cursor cursor = db.rawQuery("SELECT id FROM users WHERE Login = ? AND Haslo = ?", new String[]{Login,Haslo});
-                    //long userID = id z bazy i chuj
-                    //app.setUserID(userID);
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
+                    long userID = -1;
+                    // Pobierz id uzytkownika z bazy
+                    String hashedPassword = Global.hashPassword(Haslo);
+                    Cursor cursor = db.rawQuery("SELECT id FROM users WHERE Login = ? AND Haslo = ?", new String[]{Login, hashedPassword});
+
+                    if (cursor != null) {
+                        // sprawdz czy jest przynajmniej jeden wynik
+                        if (cursor.moveToFirst()) {
+                            //pobierz index kolumny id
+                            int idColumn = cursor.getColumnIndex("id");
+                            if (idColumn != -1) {
+                                userID = cursor.getLong(idColumn);
+                            }
+                        }
+                        cursor.close();
+                    }
+                    if (userID != -1) { //udało się zalogowac, przejdz do main
+                        app.setUserID(userID);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(this, "Nie znaleziono użytkownika. Proszę sprawdzić dane logowania.", Toast.LENGTH_SHORT).show();
+                    }
                 } else {
-                    // Dane są niepoprawne
-                    Toast.makeText(this, "Login lub hasło nie są poprawne", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Dane logowania są niepoprawne.", Toast.LENGTH_SHORT).show();
                 }
             });
             return insets;
