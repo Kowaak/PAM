@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,13 +114,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        //Cały recycler view z dokumentacji
+        recyclerView = findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        recyclerView.setAdapter(new RecyclerView.Adapter<>() {
+            @NonNull
+            @Override
+            public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                View view = LayoutInflater.from(parent.getContext())
+                        .inflate(android.R.layout.simple_list_item_1, parent, false);
+                return new RecyclerView.ViewHolder(view) {
+                };
+            }
+            @Override
+            public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+                TextView textView = (TextView) holder.itemView;
+                textView.setText(itemList.get(position));
+            }
+            @Override
+            public int getItemCount() {
+                return itemList.size();
+            }
+        });
 
         Global app = (Global) getApplication();
-
-        ImageButton fabAdd = findViewById(R.id.fabAdd);
-        ImageButton fabRemove = findViewById(R.id.fabRemove);
-        fabAdd.setOnClickListener(v->showAddRecordDialog());
-        fabRemove.setOnClickListener(v->showRemoveRecordDialog());
 
         //Wbudowane
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -128,11 +147,17 @@ public class MainActivity extends AppCompatActivity {
 
             SQLiteDatabase db = openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
             db.execSQL("CREATE TABLE IF NOT EXISTS hasla (id INTEGER PRIMARY KEY AUTOINCREMENT, userID INTEGER, nazwa TEXT, Login TEXT, Haslo TEXT, FOREIGN KEY(userID) REFERENCES users(id))");
-            Cursor cursor = db.rawQuery("SELECT id, userID, nazwa, Login, Haslo FROM hasla", null);
 
             itemList = new ArrayList<>();
 
-            // Check if the cursor contains data and retrieve the column indices
+            EditText search_bar = findViewById(R.id.search_bar);
+            Cursor cursor = db.rawQuery("SELECT id, userID, nazwa, Login, Haslo FROM hasla", null);
+
+            ImageButton fabAdd = findViewById(R.id.fabAdd);
+            ImageButton fabRemove = findViewById(R.id.fabRemove);
+            fabAdd.setOnClickListener(v1->showAddRecordDialog());
+            fabRemove.setOnClickListener(v2->showRemoveRecordDialog());
+
             int nazwaIndex = cursor.getColumnIndex("nazwa");
             int loginIndex = cursor.getColumnIndex("Login");
             int hasloIndex = cursor.getColumnIndex("Haslo");
@@ -142,13 +167,32 @@ public class MainActivity extends AppCompatActivity {
                     String nazwa = cursor.getString(nazwaIndex);
                     String login = cursor.getString(loginIndex);
                     String haslo = cursor.getString(hasloIndex);
-
                     String itemString = "Nazwa: " + nazwa + "\nLogin: " + login + "\nHasło: " + haslo;
                     itemList.add(itemString);
                     itemList.add("------------------------------------------");
                 } while (cursor.moveToNext());
             }
             cursor.close();
+
+            ImageButton search = findViewById(R.id.search);
+            search.setOnClickListener(v1 -> {
+                Cursor search_cursor = db.rawQuery("SELECT id, userID, nazwa, Login, Haslo FROM hasla WHERE nazwa LIKE ?",new String[]{"%"+search_bar.getText().toString()+"%"});
+                if (search_cursor.moveToFirst()) {
+                    itemList.clear();
+                    do {
+                        String nazwa = search_cursor.getString(nazwaIndex);
+                        String login = search_cursor.getString(loginIndex);
+                        String haslo = search_cursor.getString(hasloIndex);
+                        String itemString = "Nazwa: " + nazwa + "\nLogin: " + login + "\nHasło: " + haslo;
+                        itemList.add(itemString);
+                        itemList.add("------------------------------------------");
+                    } while (search_cursor.moveToNext());
+                }
+                recyclerView.requestLayout();
+                recyclerView.invalidate();
+                recyclerView.getAdapter().notifyDataSetChanged();
+                search_cursor.close();
+            });
 
             ImageButton wyloguj = findViewById(R.id.wyloguj);
             wyloguj.setOnClickListener(v1 -> {
@@ -161,29 +205,6 @@ public class MainActivity extends AppCompatActivity {
             ImageButton refreshButton = findViewById(R.id.odswiez);
             refreshButton.setOnClickListener(v1 -> recreate());
 
-            recyclerView = findViewById(R.id.recycler_view);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-            //Wszystko niżej to jest z dokumentacji
-            recyclerView.setAdapter(new RecyclerView.Adapter<>() {
-                @NonNull
-                @Override
-                public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                    View view = LayoutInflater.from(parent.getContext())
-                            .inflate(android.R.layout.simple_list_item_1, parent, false);
-                    return new RecyclerView.ViewHolder(view) {
-                    };
-                }
-                @Override
-                public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-                    TextView textView = (TextView) holder.itemView;
-                    textView.setText(itemList.get(position));
-                }
-                @Override
-                public int getItemCount() {
-                    return itemList.size();
-                }
-            });
             return insets;
         });
     }
