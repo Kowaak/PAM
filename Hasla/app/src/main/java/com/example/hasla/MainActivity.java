@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             values.put("Nazwa", nazwa);
             values.put("Haslo", haslo);
             values.put("userID", userID);
+            Log.v("ID_dod", String.valueOf(userID));
 
             long newRowId = db.insert("hasla", null, values);
             if (newRowId == -1) {
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             String Nazwa = editTextName.getText().toString().trim();
 
             SQLiteDatabase db = openOrCreateDatabase(DB_NAME, Context.MODE_PRIVATE, null);
-
+            Log.v("ID_usu", String.valueOf(userID));
             int rowsAffected = db.delete("hasla", "nazwa = ? AND userID = ?", new String[]{Nazwa,String.valueOf(userID)});
             if (rowsAffected > 0) {
                 Toast.makeText(this, "Usunięto", Toast.LENGTH_SHORT).show();
@@ -139,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Global app = (Global) getApplication();
-
+        long userID = app.getUserID();
         //Wbudowane
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -149,9 +150,9 @@ public class MainActivity extends AppCompatActivity {
             db.execSQL("CREATE TABLE IF NOT EXISTS hasla (id INTEGER PRIMARY KEY AUTOINCREMENT, userID INTEGER, nazwa TEXT, Login TEXT, Haslo TEXT, FOREIGN KEY(userID) REFERENCES users(id))");
 
             itemList = new ArrayList<>();
-
+    
             EditText search_bar = findViewById(R.id.search_bar);
-            Cursor cursor = db.rawQuery("SELECT id, userID, nazwa, Login, Haslo FROM hasla", null);
+            Cursor cursor = db.rawQuery("SELECT id, nazwa, Login, Haslo FROM hasla WHERE userID = ?", new String[]{String.valueOf(userID)});
 
             ImageButton fabAdd = findViewById(R.id.fabAdd);
             ImageButton fabRemove = findViewById(R.id.fabRemove);
@@ -176,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
 
             ImageButton search = findViewById(R.id.search);
             search.setOnClickListener(v1 -> {
-                Cursor search_cursor = db.rawQuery("SELECT id, userID, nazwa, Login, Haslo FROM hasla WHERE nazwa LIKE ?",new String[]{"%"+search_bar.getText().toString()+"%"});
+                Cursor search_cursor = db.rawQuery("SELECT id, nazwa, Login, Haslo FROM hasla WHERE nazwa LIKE ? AND userID = ?",new String[]{"%"+search_bar.getText().toString()+"%", String.valueOf(userID)});
                 if (search_cursor.moveToFirst()) {
                     itemList.clear();
                     do {
