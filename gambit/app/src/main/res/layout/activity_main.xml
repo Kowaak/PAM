@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="TooManyViews,HardcodedText,ContentDescription"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/rzad8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView style="@style/Szachownica.bk"
+            android:id="@+id/a8"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/b8"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/c8"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/d8"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/e8"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/f8"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/g8"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/h8"/>
+        <TextView
+            style="@style/Oznaczenia"
+            android:text="8"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rzad7"
+        app:layout_constraintTop_toBottomOf="@id/rzad8">
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/a7"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/b7"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/c7"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/d7"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/e7"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/f7"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/g7"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/h7"/>
+        <TextView
+            style="@style/Oznaczenia"
+            android:text="7"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/rzad6"
+        app:layout_constraintTop_toBottomOf="@id/rzad7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <TextView
+            style="@style/Oznaczenia"
+            android:text="6"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rzad5"
+        app:layout_constraintTop_toBottomOf="@id/rzad6">
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <TextView
+            style="@style/Oznaczenia"
+            android:text="5"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/rzad4"
+        app:layout_constraintTop_toBottomOf="@id/rzad5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <TextView
+            style="@style/Oznaczenia"
+            android:text="4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rzad3"
+        app:layout_constraintTop_toBottomOf="@id/rzad4">
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"/>
+        <TextView
+            style="@style/Oznaczenia"
+            android:text="3"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/rzad2"
+        app:layout_constraintTop_toBottomOf="@id/rzad3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/a2"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/b2"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/c2"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/d2"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/e2"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/f2"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/g2"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/h2"/>
+        <TextView
+            style="@style/Oznaczenia"
+            android:text="2"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rzad1"
+        app:layout_constraintTop_toBottomOf="@id/rzad2">
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/a1"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/b1"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/c1"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/d1"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/e1"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/f1"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/g1"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/h1"/>
+        <TextView
+            style="@style/Oznaczenia"
+            android:text="1"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rzad0"
+        app:layout_constraintTop_toBottomOf="@id/rzad1">
+        <TextView
+            style="@style/Oznaczenia.Litery"
+            android:text="A"/>
+        <TextView
+            style="@style/Oznaczenia.Litery"
+            android:text="B"/>
+        <TextView
+            style="@style/Oznaczenia.Litery"
+            android:text="C"/>
+        <TextView
+            style="@style/Oznaczenia.Litery"
+            android:text="D"/>
+        <TextView
+            style="@style/Oznaczenia.Litery"
+            android:text="E"/>
+        <TextView
+            style="@style/Oznaczenia.Litery"
+            android:text="F"/>
+        <TextView
+            style="@style/Oznaczenia.Litery"
+            android:text="G"/>
+        <TextView
+            style="@style/Oznaczenia.Litery"
+            android:text="H"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/figury"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/rzad0"
+        android:text="Dodaj figury"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

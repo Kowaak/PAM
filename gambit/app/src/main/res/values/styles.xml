@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Szachownica">
+        <item name="android:background">@color/beige</item>
+        <item name="android:layout_width">47dp</item>
+        <item name="android:layout_height">47dp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">55sp</item>
+    </style>
+
+    <style name="Szachownica.bk">
+        <item name="android:foreground">@drawable/bk</item>
+    </style>
+
+    <style name="Szachownica.bq">
+        <item name="android:foreground">@drawable/bq</item>
+    </style>
+
+    <style name="Szachownica.bb">
+        <item name="android:foreground">@drawable/bb</item>
+    </style>
+
+    <style name="Szachownica.bp">
+        <item name="android:foreground">@drawable/bp</item>
+    </style>
+
+    <style name="Szachownica.br">
+        <item name="android:foreground">@drawable/br</item>
+    </style>
+
+    <style name="Szachownica.bn">
+        <item name="android:foreground">@drawable/bn</item>
+    </style>
+
+    <style name="Szachownica.wk">
+        <item name="android:foreground">@drawable/wk</item>
+    </style>
+
+    <style name="Szachownica.wq">
+        <item name="android:foreground">@drawable/wq</item>
+    </style>
+
+    <style name="Szachownica.wb">
+        <item name="android:foreground">@drawable/wb</item>
+    </style>
+
+    <style name="Szachownica.wp">
+        <item name="android:foreground">@drawable/wp</item>
+    </style>
+
+    <style name="Szachownica.wr">
+        <item name="android:foreground">@drawable/wr</item>
+    </style>
+
+    <style name="Szachownica.wn">
+        <item name="android:foreground">@drawable/wn</item>
+    </style>
+
+    <style name="Szachownica.Kolor">
+        <item name="android:background">@color/brown</item>
+    </style>
+
+    <style name="Szachownica.Kolor.bk">
+        <item name="android:foreground">@drawable/bk</item>
+    </style>
+
+    <style name="Szachownica.Kolor.bq">
+        <item name="android:foreground">@drawable/bq</item>
+    </style>
+
+    <style name="Szachownica.Kolor.bb">
+        <item name="android:foreground">@drawable/bb</item>
+    </style>
+
+    <style name="Szachownica.Kolor.bp">
+        <item name="android:foreground">@drawable/bp</item>
+    </style>
+
+    <style name="Szachownica.Kolor.br">
+        <item name="android:foreground">@drawable/br</item>
+    </style>
+
+    <style name="Szachownica.Kolor.bn">
+        <item name="android:foreground">@drawable/bn</item>
+    </style>
+
+    <style name="Szachownica.Kolor.wk">
+        <item name="android:foreground">@drawable/wk</item>
+    </style>
+
+    <style name="Szachownica.Kolor.wq">
+        <item name="android:foreground">@drawable/wq</item>
+    </style>
+
+    <style name="Szachownica.Kolor.wb">
+        <item name="android:foreground">@drawable/wb</item>
+    </style>
+
+    <style name="Szachownica.Kolor.wp">
+        <item name="android:foreground">@drawable/wp</item>
+    </style>
+
+    <style name="Szachownica.Kolor.wr">
+        <item name="android:foreground">@drawable/wr</item>
+    </style>
+
+    <style name="Szachownica.Kolor.wn">
+        <item name="android:foreground">@drawable/wn</item>
+    </style>
+
+    <style name="Oznaczenia">
+        <item name="android:foregroundGravity">center</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="Oznaczenia.Litery">
+        <item name="android:foregroundGravity">center</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+    </style>
+
+
+</resources>
