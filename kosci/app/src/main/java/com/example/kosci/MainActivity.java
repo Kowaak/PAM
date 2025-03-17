@@ -29,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
             int rand_int4 = rand.nextInt(5);
             int rand_int5 = rand.nextInt(5);
             int rand_int6 = rand.nextInt(5);
-
-
+            
             return insets;
         });
     }

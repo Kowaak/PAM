@@ -63,14 +63,22 @@
         app:layout_constraintTop_toBottomOf="@id/rzad7"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/a6"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/b6"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/c6"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/d6"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/e6"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/f6"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/g6"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/h6"/>
         <TextView
             style="@style/Oznaczenia"
             android:text="6"/>
@@ -80,14 +88,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/rzad5"
         app:layout_constraintTop_toBottomOf="@id/rzad6">
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/a5"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/b5"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/c5"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/d5"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/e5"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/f5"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/g5"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/h5"/>
         <TextView
             style="@style/Oznaczenia"
             android:text="5"/>
@@ -97,14 +113,22 @@
         app:layout_constraintTop_toBottomOf="@id/rzad5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/a4"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/b4"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/c4"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/d4"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/e4"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/f4"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/g4"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/h4"/>
         <TextView
             style="@style/Oznaczenia"
             android:text="4"/>
@@ -114,14 +138,22 @@
         android:layout_height="wrap_content"
         android:id="@+id/rzad3"
         app:layout_constraintTop_toBottomOf="@id/rzad4">
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
-        <ImageView style="@style/Szachownica.Kolor"/>
-        <ImageView style="@style/Szachownica"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/a3"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/b3"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/c3"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/d3"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/e3"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/f3"/>
+        <ImageView style="@style/Szachownica.Kolor"
+            android:id="@+id/g3"/>
+        <ImageView style="@style/Szachownica"
+            android:id="@+id/h3"/>
         <TextView
             style="@style/Oznaczenia"
             android:text="3"/>
@@ -214,6 +246,12 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/rzad0"
         android:text="Dodaj figury"/>
+    <Button
+        android:id="@+id/ruchy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/figury"
+        android:text="Przykładowe ruchy"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
