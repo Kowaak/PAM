@@ -7,13 +7,57 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <Button
+        android:id="@+id/losuj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Losuj"
+        app:layout_constraintTop_toBottomOf="@id/rzad" />
 
+    <LinearLayout
+        android:id="@+id/rzad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/k1"
+            style="@style/Kostka"
+            android:foreground="@drawable/k1" />
+
+        <ImageView
+            android:id="@+id/k2"
+            style="@style/Kostka"
+            android:foreground="@drawable/k2" />
+
+        <ImageView
+            android:id="@+id/k3"
+            style="@style/Kostka"
+            android:foreground="@drawable/k3" />
+
+        <ImageView
+            android:id="@+id/k4"
+            style="@style/Kostka"
+            android:foreground="@drawable/k4" />
+
+        <ImageView
+            android:id="@+id/k5"
+            style="@style/Kostka"
+            android:foreground="@drawable/k5" />
+
+        <ImageView
+            android:id="@+id/k6"
+            style="@style/Kostka"
+            android:foreground="@drawable/k6" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/wynik"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/losuj"
+        android:text="Wynik losowania: "
+        android:textSize="40dp"
+        android:gravity="center"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

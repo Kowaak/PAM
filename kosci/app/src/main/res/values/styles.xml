@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Kostka">
+        <item name="android:layout_width">68dp</item>
+        <item name="android:layout_height">68dp</item>
+        <item name="android:typeface">serif</item>
+        <item name="android:textSize">55sp</item>
+    </style>
+
+
+</resources>
