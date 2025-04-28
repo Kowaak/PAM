@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
             Random rand = new Random();
             int[] tab = new int[6];
-            Button losuj = findViewById(R.id.losuj);
+            Button losuj = findViewById(R .id.losuj);
 
             ImageView ko1 = findViewById(R.id.k1);
             ImageView ko2 = findViewById(R.id.k2);
