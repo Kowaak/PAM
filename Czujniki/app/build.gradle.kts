@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.bandyta"
+    namespace = "com.example.czujniki"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.bandyta"
+        applicationId = "com.example.czujniki"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -32,7 +32,7 @@ android {
 }
 
 dependencies {
-    implementation ("pl.droidsonroids.gif:android-gif-drawable:1.2.17")
+
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
