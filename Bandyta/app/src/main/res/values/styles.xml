@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Slot">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    </style>
+    <style name="Slot.cherry">
+        <item name="android:background">@drawable/cherry</item>
+    </style>
+    <style name="Slot.diamond">
+        <item name="android:background">@drawable/diamond</item>
+    </style>
+    <style name="Slot.large_milk">
+        <item name="android:background">@drawable/large_milk</item>
+    </style>
+    <style name="Slot.melon">
+        <item name="android:background">@drawable/melon</item>
+    </style>
+    <style name="Slot.nautilus_shell">
+        <item name="android:background">@drawable/nautilus_shell</item>
+    </style>
+    <style name="Slot.parsnip">
+        <item name="android:background">@drawable/parsnip</item>
+    </style>
+    <style name="Slot.rainbow_trout">
+        <item name="android:background">@drawable/rainbow_trout</item>
+    </style>
+    <style name="Slot.stardrop">
+        <item name="android:background">@drawable/stardrop</item>
+    </style>
+
+    <style name="Gif">
+        <item name="android:src">@drawable/przegrana</item>
+    </style>
+</resources>

@@ -7,10 +7,97 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1000 $"
+        android:textSize="70sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="288dp"
+        android:layout_height="96dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/k1"
+            android:background="@drawable/cherry"
+            android:layout_width="96dp"
+            android:layout_height="96dp" />
+
+        <ImageView
+            android:id="@+id/k2"
+            android:background="@drawable/cherry"
+            android:layout_width="96dp"
+            android:layout_height="96dp" />
+
+        <ImageView
+            android:id="@+id/k3"
+            android:background="@drawable/cherry"
+            android:layout_width="96dp"
+            android:layout_height="96dp" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/stawka_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="stawka (domyślnie 50)"
+        android:inputType="number"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <Button
+        android:id="@+id/showPrizeTableBtn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="Show Prize Table"
+        android:padding="8dp"
+        android:text=""
+        app:icon="@drawable/baseline_table_rows_24"
+        app:iconGravity="textStart"
+        app:iconTint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/play"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        android:layout_marginEnd="16dp" />
+
+    <Button
+        android:id="@+id/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Graj"
+        android:textSize="28sp"
+        android:paddingLeft="24dp"
+        android:paddingRight="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:minWidth="200dp"
+        android:minHeight="56dp"
+        android:elevation="4dp"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="32dp" />
+
     <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/rat_dance"
-        />
+        android:layout_height="380dp"
+        android:src="@drawable/rainbows_cockroach"
+        app:layout_constraintBottom_toTopOf="@+id/play"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

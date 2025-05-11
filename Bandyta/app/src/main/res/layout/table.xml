@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/prizes_table"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:stretchColumns="2">
+
+    <TableRow
+        android:padding="8dp">
+        <TextView
+            android:text="Ilość"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:layout_column="0" />
+        <TextView
+            android:text="Znak"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:layout_column="1" />
+        <TextView
+            android:text="Mnożnik"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:padding="8dp"
+            android:layout_column="2" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+        <TextView android:text="1 " android:padding="8dp" />
+        <ImageView android:background="@drawable/cherry" android:layout_width="24dp" android:layout_height="40dp"/>
+        <TextView android:text="* 2" android:padding="8dp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+        <TextView android:text="2 " android:padding="8dp" />
+        <ImageView android:background="@drawable/cherry" android:layout_width="24dp" android:layout_height="40dp"/>
+        <TextView android:text="* 3" android:padding="8dp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+        <TextView android:text="3 " android:padding="8dp" />
+        <ImageView android:background="@drawable/cherry" android:layout_width="24dp" android:layout_height="40dp"/>
+        <TextView android:text="* 500" android:padding="8dp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+        <TextView android:text="3 " android:padding="8dp" />
+        <ImageView android:background="@drawable/parsnip" android:layout_width="24dp" android:layout_height="40dp"/>
+        <TextView android:text="* 5" android:padding="8dp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+        <TextView android:text="3 " android:padding="8dp" />
+        <ImageView android:background="@drawable/large_milk" android:layout_width="24dp" android:layout_height="40dp"/>
+        <TextView android:text="* 30" android:padding="8dp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+        <TextView android:text="3 " android:padding="8dp" />
+        <ImageView android:background="@drawable/rainbow_trout" android:layout_width="24dp" android:layout_height="40dp"/>
+        <TextView android:text="* 80" android:padding="8dp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+        <TextView android:text="3 " android:padding="8dp" />
+        <ImageView android:background="@drawable/nautilus_shell" android:layout_width="24dp" android:layout_height="40dp"/>
+        <TextView android:text="* 120" android:padding="8dp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+        <TextView android:text="3 " android:padding="8dp" />
+        <ImageView android:background="@drawable/melon" android:layout_width="24dp" android:layout_height="40dp"/>
+        <TextView android:text="* 200" android:padding="8dp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+        <TextView android:text="3 " android:padding="8dp" />
+        <ImageView android:background="@drawable/diamond" android:layout_width="24dp" android:layout_height="40dp"/>
+        <TextView android:text="* 1000" android:padding="8dp" />
+    </TableRow>
+
+    <TableRow android:padding="8dp">
+        <TextView android:text="3 " android:padding="8dp" />
+        <ImageView android:background="@drawable/stardrop" android:layout_width="24dp" android:layout_height="40dp"/>
+        <TextView android:text="* 2500" android:padding="8dp" />
+    </TableRow>
+    <Button
+        android:id="@+id/closeBtn"
+        android:text="Zamknij"
+        />
+</TableLayout>
